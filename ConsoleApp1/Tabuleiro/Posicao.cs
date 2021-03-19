@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.Tabuleiro
+﻿namespace tabuleiro
 {
     class Posicao
     {

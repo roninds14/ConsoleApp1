@@ -1,5 +1,5 @@
 ﻿using System;
-using ConsoleApp1.Tabuleiro;
+using tabuleiro;
 
 namespace ConsoleApp1
 {
