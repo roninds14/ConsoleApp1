@@ -1,5 +1,4 @@
 ﻿using Enums;
-using tabuleiro;
 
 namespace tabuleiro
 {
@@ -18,5 +17,11 @@ namespace tabuleiro
             tab = tabuleiro;
             this.qtdMovimentos = 0;
         }
+
+        public override string ToString()
+        {
+            return "P";
+        }
+
     }
 }

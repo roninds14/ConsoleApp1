@@ -7,13 +7,12 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Posicao p;
+            Tabuleiro tab = new Tabuleiro(8, 8);
 
-            p = new Posicao(3, 4);
+            Tela.imprimirTabuleiro(tab);
 
-            Console.WriteLine(p);
+            Console.WriteLine();
 
-            Console.ReadLine();
         } 
     }
 }
