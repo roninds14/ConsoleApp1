@@ -1,4 +1,5 @@
 ﻿using System;
+using ConsoleApp1.Tabuleiro;
 
 namespace ConsoleApp1
 {
@@ -6,7 +7,13 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-        }
+            Posicao p;
+
+            p = new Posicao(3, 4);
+
+            Console.WriteLine(p);
+
+            Console.ReadLine();
+        } 
     }
 }
