@@ -24,6 +24,11 @@ namespace ConsoleApp1
                     Console.Write("Digite a posição de origem: ");
                     Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
 
+                    bool[,] possicoesPossiveis = partida.tab.peca(origem).movimentosPosiveis();
+
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partida.tab, possicoesPossiveis);
+
                     Console.Write("Digite a posição de destino: ");
                     Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
 

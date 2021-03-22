@@ -14,28 +14,49 @@ namespace ConsoleApp1
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if( tab.peca( i, j ) == null )
-                        Console.Write( "- ");
-                    else
-                    {
-                        imprimirPeca(tab.peca(i, j));                        
-                    }
+                    imprimirPeca(tab.peca(i, j));                    
                 }
                 Console.WriteLine();
             }
             Console.WriteLine("  a b c d e f g h");
         }
 
+        public static void imprimirTabuleiro(Tabuleiro tab, bool[,] possicoesPossiveis)
+        {
+            ConsoleColor fundoOriginal = Console.BackgroundColor;
+            ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
+            
+            for (int i = 0; i < tab.linhas; i++)
+            {
+                Console.Write(8 - i + " ");
+                for (int j = 0; j < tab.colunas; j++)
+                {
+                    Console.BackgroundColor = possicoesPossiveis[i, j] ? fundoAlterado : fundoOriginal;
+                    imprimirPeca(tab.peca(i, j));
+                }
+                Console.BackgroundColor = fundoOriginal;
+                Console.WriteLine();
+            }
+            Console.WriteLine("  a b c d e f g h");            
+        }
+
         public static void imprimirPeca( Peca p)
         {
-            if (p.cor == Cor.Branca)
-                Console.Write(p);
+            if (p == null)
+            {
+                Console.Write("- ");
+            }
             else
             {
-                ConsoleColor aux = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(p);
-                Console.ForegroundColor = aux;
+                if (p.cor == Cor.Branca)
+                    Console.Write(p);
+                else
+                {
+                    ConsoleColor aux = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(p);
+                    Console.ForegroundColor = aux;
+                }
             }
 
         }
