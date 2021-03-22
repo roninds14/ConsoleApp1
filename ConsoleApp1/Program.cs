@@ -9,16 +9,21 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Tabuleiro tab = new Tabuleiro(8, 8);
+            try
+            {
+                PosicaoXadrez peca = new PosicaoXadrez('b', 1);
 
-            tab.colocarPeca( new Torre(tab, Cor.Preta ), new Posicao(0, 0));
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 1));
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(2, 2));
+                Console.WriteLine(peca);
+                Console.WriteLine(peca.toPosicao());
 
-            Tela.imprimirTabuleiro(tab);
+                Console.WriteLine();
+            }
+            catch (TabuleiroExcepitoon e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-            Console.WriteLine();
-
+            Console.ReadLine();
         } 
     }
 }
