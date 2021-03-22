@@ -16,23 +16,35 @@ namespace ConsoleApp1
                 
                 while( !partida.terminada)
                 {
-                    Console.Clear();
-                    Tela.imprimirTabuleiro(partida.tab);
+                    try
+                    {
+                        Console.Clear();
+                        Tela.imprimirTabuleiro(partida.tab);
+                        Console.WriteLine();
+                        Console.WriteLine("Turno: " + partida.turno);
+                        Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
 
-                    Console.WriteLine();
+                        Console.WriteLine();
 
-                    Console.Write("Digite a posição de origem: ");
-                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                        Console.Write("Digite a posição de origem: ");
+                        Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
 
-                    bool[,] possicoesPossiveis = partida.tab.peca(origem).movimentosPosiveis();
+                        partida.validarPosicaoDeOrigem(origem);
 
-                    Console.Clear();
-                    Tela.imprimirTabuleiro(partida.tab, possicoesPossiveis);
+                        bool[,] possicoesPossiveis = partida.tab.peca(origem).movimentosPosiveis();
 
-                    Console.Write("Digite a posição de destino: ");
-                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+                        Console.Clear();
+                        Tela.imprimirTabuleiro(partida.tab, possicoesPossiveis);
 
-                    partida.executaMovimento(origem, destino);
+                        Console.Write("Digite a posição de destino: ");
+                        Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+                        partida.realizaJogada(origem, destino);
+                    }
+                    catch (TabuleiroExcepitoon e){
+                        Console.WriteLine(e.Message);
+                        Console.ReadLine();
+                    }
                 }
             }
             catch (TabuleiroExcepitoon e)
