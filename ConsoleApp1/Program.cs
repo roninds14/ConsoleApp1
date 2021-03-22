@@ -39,6 +39,8 @@ namespace ConsoleApp1
                         Console.Write("Digite a posição de destino: ");
                         Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
 
+                        partida.validarPosicaoDeDesitino(origem, destino);
+
                         partida.realizaJogada(origem, destino);
                     }
                     catch (TabuleiroExcepitoon e){

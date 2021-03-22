@@ -38,6 +38,11 @@ namespace tabuleiro
             return false;
         }
 
+        public bool podeMoverPara(Posicao pos)
+        {
+            return movimentosPosiveis()[pos.Linha, pos.Coluna];
+        }
+
         public abstract bool[,] movimentosPosiveis();
     }
 }

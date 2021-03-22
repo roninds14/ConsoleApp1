@@ -56,5 +56,11 @@ namespace Xadrez
             if (!tab.peca(pos).existeMovimentosPossiveis())
                 throw new TabuleiroExcepitoon("Não há movimentos possíveis para a peça!");
         }
+
+        public void validarPosicaoDeDesitino(Posicao origem, Posicao destino)
+        {
+            if (!tab.peca(origem).podeMoverPara(destino))
+                throw new TabuleiroExcepitoon("Posição de Destino inválida!");
+        }
     }
 }
