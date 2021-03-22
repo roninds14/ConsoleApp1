@@ -11,12 +11,24 @@ namespace ConsoleApp1
         {
             try
             {
-                PosicaoXadrez peca = new PosicaoXadrez('b', 1);
+                PartidaDeXadrez partida = new PartidaDeXadrez();                
 
-                Console.WriteLine(peca);
-                Console.WriteLine(peca.toPosicao());
+                
+                while( !partida.terminada)
+                {
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partida.tab);
 
-                Console.WriteLine();
+                    Console.WriteLine();
+
+                    Console.Write("Digite a posição de origem: ");
+                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+
+                    Console.Write("Digite a posição de destino: ");
+                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+                    partida.executaMovimento(origem, destino);
+                }
             }
             catch (TabuleiroExcepitoon e)
             {

@@ -20,7 +20,11 @@ namespace tabuleiro
 
         public override string ToString()
         {
-            return "P";
+            return "P ";
+        }
+
+        public void incrementarQtdDeMovimentos() {
+            this.qtdMovimentos++;
         }
 
     }
