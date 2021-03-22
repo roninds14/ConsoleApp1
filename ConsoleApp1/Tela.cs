@@ -2,6 +2,7 @@
 using tabuleiro;
 using Enums;
 using Xadrez;
+using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
@@ -38,6 +39,42 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }
             Console.WriteLine("  a b c d e f g h");            
+        }
+
+        public static void imprimirPartida( PartidaDeXadrez partida)
+        {
+            Tela.imprimirTabuleiro(partida.tab);
+            imprimirPecasCapturadas(partida);
+            Console.WriteLine();
+            Console.WriteLine("Turno: " + partida.turno);
+            Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+            if (partida.xeque)
+            {
+                Console.WriteLine("VÔCE ESTÁ EM XEQUE");
+
+            }
+        }
+
+        public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Pecas capturadas: ");
+            Console.Write("Brancas: ");
+            imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
+            Console.WriteLine();
+            Console.Write("Pretas:");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
+            Console.ForegroundColor = aux;
+            Console.WriteLine();
+        }
+
+        public static void imprimirConjunto(HashSet<Peca> conjunto)
+        {
+            Console.Write("[");
+            foreach (Peca x in conjunto) Console.Write(x);
+            Console.Write("]");
         }
 
         public static void imprimirPeca( Peca p)
