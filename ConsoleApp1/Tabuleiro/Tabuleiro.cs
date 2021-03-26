@@ -40,7 +40,7 @@
                 return null;
             }
             Peca aux = peca(pos);
-            aux.posicao = null;
+            //aux.posicao = null;
             pecas[pos.Linha, pos.Coluna] = null;
 
             return aux;

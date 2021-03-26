@@ -77,7 +77,7 @@ namespace Xadrez
             colocarNovaPeca('h', 1, new Rei(tab, Cor.Branca));
 
             colocarNovaPeca('g', 8, new Torre(tab, Cor.Preta));
-            colocarNovaPeca('f', 7, new Torre(tab, Cor.Preta));
+            colocarNovaPeca('f', 7, new Bispo(tab, Cor.Preta));
             colocarNovaPeca('b', 8, new Rei(tab, Cor.Preta));
         }
 
