@@ -40,11 +40,13 @@ namespace ConsoleApp1
 
                         partida.realizaJogada(origem, destino);
                     }
-                    catch (TabuleiroExcepitoon e){
+                    catch (TabuleiroExcepitoon e){                        
                         Console.WriteLine(e.Message);
                         Console.ReadLine();
                     }
                 }
+                Console.Clear();
+                Tela.imprimirPartida(partida);
             }
             catch (TabuleiroExcepitoon e)
             {

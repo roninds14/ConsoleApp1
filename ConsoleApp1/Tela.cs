@@ -46,12 +46,21 @@ namespace ConsoleApp1
             Tela.imprimirTabuleiro(partida.tab);
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
-            Console.WriteLine("Turno: " + partida.turno);
-            Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
-            if (partida.xeque)
-            {
-                Console.WriteLine("VÔCE ESTÁ EM XEQUE");
 
+            if (!partida.terminada)
+            {
+                Console.WriteLine("Turno: " + partida.turno);
+                Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine("VÔCE ESTÁ EM XEQUE");
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("Partida encerrada!");
+                Console.WriteLine("Vencedor: " + partida.jogadorAtual );
             }
         }
 
